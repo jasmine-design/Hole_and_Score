@@ -11,6 +11,13 @@ public class PoolGameController : MonoBehaviour {
 	public GameObject scoreBar;
 	public GameObject winnerMessage;
 	
+	public float maxForce;
+	public float minForce;
+	public Vector3 strikeDirection;
+
+	public const float MIN_DISTANCE = 27.5f;
+	public const float MAX_DISTANCE = 32f;
+
 	public IGameObjectState currentState;
 
 	public Player CurrentPlayer;
@@ -27,12 +34,27 @@ public class PoolGameController : MonoBehaviour {
 	}
 
 	void Start() {
-		CurrentPlayer = new Player("John");
-		OtherPlayer = new Player("Doe");
+		CurrentPlayer = new Player(1);
+		OtherPlayer = new Player(2);
 		GameInstance = this;
 		Message = GameObject.FindObjectOfType<MessageController>();
 		winnerMessage.GetComponent<Canvas>().enabled = false;
+
+		currentState = new GameStates.WaitingForStrikeState(this);
 	}
+
+	void Update() {
+		currentState.Update();
+	}
+
+	void FixedUpdate() {
+		currentState.FixedUpdate();
+	}
+
+	void LateUpdate() {
+		currentState.LateUpdate();
+	}
+
 
 	public void BallPocketed(int ballNumber) {
 		currentPlayerContinuesToPlay = true;
@@ -46,14 +68,15 @@ public class PoolGameController : MonoBehaviour {
 	public void NextPlayer() {
 		if (currentPlayerContinuesToPlay) {
 			currentPlayerContinuesToPlay = false;
-			Debug.Log(CurrentPlayer.Name + " continues to play");
+			Debug.Log(CurrentPlayer.Number + " continues to play");
 			return;
 		}
 
-		Debug.Log(OtherPlayer.Name + " will play");
+		Debug.Log(OtherPlayer.Number + " will play");
 		var aux = CurrentPlayer;
 		CurrentPlayer = OtherPlayer;
 		OtherPlayer = aux;
+		Message.ShowTurnMessage();
 	}
 
 	public void EndMatch() {
@@ -66,7 +89,7 @@ public class PoolGameController : MonoBehaviour {
 		var msg = "Game Over\n";
 
 		if (winner != null)
-			msg += string.Format("The winner is '{0}'", winner.Name);
+			msg += string.Format("The winner is '{0}'", winner.Number);
 		else
 			msg += "It was a draw!";
 

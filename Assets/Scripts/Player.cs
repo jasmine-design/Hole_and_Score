@@ -6,11 +6,11 @@ using System.Collections.Generic;
 public class Player {
 	private IList<Int32> ballsCollected = new List<Int32>();
 
-	public Player(string name) {
-		Name = name;
+	public Player(int number) {
+		Number = number;
 	}
 
-	public string Name {
+	public int Number {
 		get;
 		private set;
 	}
@@ -20,7 +20,7 @@ public class Player {
 	}
 
 	public void Collect(int ballNumber) {
-		Debug.Log(Name + " collected ball " + ballNumber);
+		Debug.Log("Player" + Number + " collected ball " + ballNumber);
 		ballsCollected.Add(ballNumber);
 	}
 }
