@@ -4,8 +4,6 @@ using TMPro;
 
 
 public class PoolGameController : MonoBehaviour {
-	public GameObject club1;
-	public GameObject club2;
 	public GameObject cueBall;
 	public GameObject redBalls;
 	public GameObject scoreBar;
@@ -23,6 +21,10 @@ public class PoolGameController : MonoBehaviour {
 	public Player CurrentPlayer;
 	public Player OtherPlayer;
 
+	
+	public Club club1;
+	public Club club2;
+
 	private MessageController Message;
 
 	private bool currentPlayerContinuesToPlay = false;
@@ -34,8 +36,12 @@ public class PoolGameController : MonoBehaviour {
 	}
 
 	void Start() {
-		CurrentPlayer = new Player(1);
-		OtherPlayer = new Player(2);
+		club1 = GameObject.Find("Club1").GetComponent<Club>();
+    	club2 = GameObject.Find("Club2").GetComponent<Club>();
+
+		CurrentPlayer =  new Player(1, club1);
+		OtherPlayer = new Player(2, club2);
+		
 		GameInstance = this;
 		Message = GameObject.FindObjectOfType<MessageController>();
 		winnerMessage.GetComponent<Canvas>().enabled = false;

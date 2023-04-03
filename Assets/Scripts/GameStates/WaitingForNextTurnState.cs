@@ -4,27 +4,21 @@ using System.Collections;
 namespace GameStates {
 	public class WaitingForNextTurnState : AbstractGameObjectState {
 		private PoolGameController gameController;
-		private GameObject club1;
+		private Club currentplayerClub;
 		private GameObject cueBall;
 		private GameObject redBalls;
 		private GameObject mainCamera;
 
-		//private Vector3 cameraOffset;
 		private Vector3 cueOffset;
-		//private Quaternion cameraRotation;
-		//private Quaternion cueRotation;
 
 		public WaitingForNextTurnState(MonoBehaviour parent) : base(parent) {
 			gameController = (PoolGameController)parent;
 
-			club1 = gameController.club1;
+			currentplayerClub = gameController.CurrentPlayer.club;
+
 			cueBall = gameController.cueBall;
 			redBalls = gameController.redBalls;
 			
-			//cameraOffset = cueBall.transform.position - mainCamera.transform.position;
-			//cameraRotation = mainCamera.transform.rotation;
-			//cueOffset = cueBall.transform.position - club1.transform.position;
-			//cueRotation = club1.transform.rotation;
 		}
 
 		public override void FixedUpdate() {
@@ -55,11 +49,8 @@ namespace GameStates {
 		}
 
 		public override void LateUpdate() {
-			//mainCamera.transform.position = cueBall.transform.position - cameraOffset;
-			//mainCamera.transform.rotation = cameraRotation;
-			
-			//club1.transform.position = cueBall.transform.position - cueOffset;
-			//club1.transform.rotation = cueRotation;
+
+
 		}
 	}
 }

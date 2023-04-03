@@ -9,7 +9,6 @@ public class MessageController : MonoBehaviour {
 	public float displayTime = 3f;
     private Coroutine coroutine;
     private string warningMessage = "Message: FOUL - you can't use the cueball to hit the ball.";
-    private string turnMessage = "";
 
     public void ShowTurnMessage(){
 

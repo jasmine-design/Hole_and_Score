@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace GameStates {
 	public class WaitingForStrikeState  : AbstractGameObjectState {
-		private GameObject club1;
+		private Club currentplayerClub;
 		private GameObject cueBall;
 		private int currentplayerNumber;
 		//private GameObject mainCamera;
@@ -15,9 +15,9 @@ namespace GameStates {
 
 		public WaitingForStrikeState(MonoBehaviour parent) : base(parent) { 
 			gameController = (PoolGameController)parent;
-			club1 = gameController.club1;
+			currentplayerClub = gameController.CurrentPlayer.club;
 			cueBall = gameController.cueBall;
-			club1.GetComponent<Renderer>().enabled = true;
+			currentplayerClub.GetComponent<Renderer>().enabled = true;
 			playerDetector = GameObject.FindObjectOfType<CueBallController>();
 			currentplayerNumber = gameController.CurrentPlayer.Number;
 			
@@ -35,9 +35,6 @@ namespace GameStates {
 			}
 			Debug.DrawLine(cueBall.transform.position, cueBall.transform.position + gameController.strikeDirection * 10);
 			
-			if (Input.GetButtonDown("Fire1")) {
-				gameController.currentState = new GameStates.StrikingState(gameController);
-			}
 			*/
 			int playerIndex = playerDetector.lastPlayerIndex;
 			if (playerIndex == currentplayerNumber){

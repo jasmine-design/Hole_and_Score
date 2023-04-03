@@ -65,6 +65,7 @@
      <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\GrabObject.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\SimpleCapsuleWithStickMovement.cs" />
+     <Compile Include="Assets\Self-added\Scripts_self added\playerinput.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\AugmentedObject.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\InteractableRegistry.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\SceneManager\Scripts\PassthroughPlayInEditor.cs" />
@@ -75,6 +76,7 @@
      <Compile Include="Assets\Scripts\IGameObjectState.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportInputHandler.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\GrabManager.cs" />
+     <Compile Include="Assets\Scripts\Interfaces\IGravitySource.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\AnchorSession.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\CharacterCameraConstraint.cs" />
      <Compile Include="Assets\Normal\Examples\Hoverbird Player\Scripts\HoverbirdPlayer.cs" />
@@ -123,11 +125,12 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTargetHandlerNavMesh.cs" />
+     <Compile Include="Assets\Scripts\GravityWall.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\TouchPro\Scripts\Ui\UiAxis2dInspector.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\ControllerBoxController.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\AppDeeplink\UI\CustomDebugUI.cs" />
-     <Compile Include="Assets\Scripts\CueBallController.cs" />
+     <Compile Include="Assets\Scripts\BallController\CueBallController.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\SceneManager\Scripts\Spawnable.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Scripts\ButtonDownListener.cs" />
      <Compile Include="Assets\Normal\Examples\Cube Player\Scripts\CubePlayer.cs" />
@@ -145,6 +148,7 @@
      <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTransition.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\SelectionCylinder.cs" />
+     <Compile Include="Assets\Scripts\BallController\BallController.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\PanelHMDFollower.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\AppDeeplink\AppDeeplinkUI.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\DebugUI\DebugUISample.cs" />
@@ -180,12 +184,15 @@
      <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\PinchStateModule.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\WindmillBladesController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+     <Compile Include="Assets\Scripts\CentrelBox.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportInputHandlerTouch.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\SceneManager\Scripts\RequestCaptureFlow.cs" />
+     <Compile Include="Assets\Scripts\DirectionalGravity.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\SceneManager\Scripts\BouncingBallLogic.cs" />
-     <Compile Include="Assets\Scripts\SnookerBallController.cs" />
-     <Compile Include="Assets\Scripts\RedBallController.cs" />
+     <Compile Include="Assets\Scripts\GravityItem.cs" />
+     <Compile Include="Assets\Scripts\BallController\SnookerBallController.cs" />
+     <Compile Include="Assets\Scripts\BallController\RedBallController.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTransitionInstant.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\Anchor.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\SceneManager\Scripts\SimpleResizer\SimpleResizer.cs" />
@@ -197,6 +204,7 @@
      <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\OverlayPassthrough.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\AbstractGameObjectState.cs" />
+     <Compile Include="Assets\Self-added\Scripts_self added\movement limitation.cs" />
      <Compile Include="Assets\Scripts\UIController\MessageController.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\LocomotionTeleport.cs" />
      <Compile Include="Assets\Normal\Examples\Cube Player\Scripts\CubePlayerManager.cs" />
@@ -213,6 +221,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\RayTool.cs" />
+     <Compile Include="Assets\Scripts\Test.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\FingerTipPokeToolView.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\Oculus\SampleFramework\Usage\OVROverlay\Scripts\OVROverlaySample.cs" />

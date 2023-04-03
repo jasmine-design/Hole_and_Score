@@ -5,9 +5,11 @@ using System.Collections.Generic;
 
 public class Player {
 	private IList<Int32> ballsCollected = new List<Int32>();
+	public Club club;
 
-	public Player(int number) {
+	public Player(int number, Club club) {
 		Number = number;
+		this.club = club;
 	}
 
 	public int Number {

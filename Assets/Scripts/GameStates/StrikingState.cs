@@ -6,19 +6,20 @@ namespace GameStates {
 		private PoolGameController gameController;
 		private CueBallController playerDetector;
 
-		private GameObject club1;
+		private Club currentplayerClub;
 		private GameObject cueBall;
 		private int currentplayerNumber;
+		
 
 		private float cueDirection = -1;
 		private float speed = 7;
 
 		public StrikingState(MonoBehaviour parent) : base(parent) { 
 			gameController = (PoolGameController)parent;
-			club1 = gameController.club1;
 			cueBall = gameController.cueBall;
 			playerDetector = GameObject.FindObjectOfType<CueBallController>();
 			currentplayerNumber = gameController.CurrentPlayer.Number;
+			currentplayerClub = gameController.CurrentPlayer.club;
 		}
 
 		public override void Update() {
