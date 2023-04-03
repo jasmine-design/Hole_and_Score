@@ -23,11 +23,7 @@ namespace GameStates {
 		}
 
 		public override void Update() {
-			/*
-			if (Input.GetButtonUp("Fire1")) {
-				gameController.currentState = new GameStates.StrikeState(gameController);
-			}
-			*/
+
 			int playerIndex = playerDetector.lastPlayerIndex;
 			if (playerIndex == currentplayerNumber){
 				gameController.currentState = new GameStates.StrikeState(gameController);
@@ -38,7 +34,7 @@ namespace GameStates {
 			/*
 			var distance = Vector3.Distance(club1.transform.position, cueBall.transform.position);
 			if (distance < PoolGameController.MIN_DISTANCE || distance > PoolGameController.MAX_DISTANCE)
-				cueDirection *= -1;
+			cueDirection *= -1;
 			club1.transform.Translate(Vector3.down * speed * cueDirection * Time.fixedDeltaTime);
 			*/
 		}

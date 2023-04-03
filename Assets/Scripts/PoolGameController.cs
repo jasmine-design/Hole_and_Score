@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using TMPro;
 
@@ -20,7 +20,6 @@ public class PoolGameController : MonoBehaviour {
 
 	public Player CurrentPlayer;
 	public Player OtherPlayer;
-
 	
 	public Club club1;
 	public Club club2;

@@ -35,10 +35,10 @@ public class CueBallController : MonoBehaviour
             // 更新最後一次擊打母球的玩家編號
             lastPlayerIndex = playerIndex;
             // 計算擊打方向和力量 ---
-            direction = club.transform.position - cueBall.transform.position;
-            float hitPower = club.GetComponent<Rigidbody>().velocity.magnitude;
-            Debug.Log("Hit power: " + hitPower);
-            Debug.Log("Hit direction: " + direction);
+            //direction = club.transform.position - cueBall.transform.position;
+            //float hitPower = club.GetComponent<Rigidbody>().velocity.magnitude;
+            //Debug.Log("Hit power: " + hitPower);
+            //Debug.Log("Hit direction: " + direction);
             // 偵測開球 ---
             cueBall.GetComponent<Rigidbody>().velocity = direction.normalized * power;
             // 母球開始移動
@@ -50,9 +50,9 @@ public class CueBallController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("cueBall" + rb.velocity.magnitude + rb.angularVelocity.magnitude);
-        
+        //Debug.Log("cueBall" + rb.velocity.magnitude + rb.angularVelocity.magnitude);
         if(ballStartMoving){
+            Debug.Log("Cueball starts moving: "+ rb.velocity);
             if (rb.velocity.magnitude > maxSpeed){
                 rb.velocity = rb.velocity.normalized * maxSpeed;
             }

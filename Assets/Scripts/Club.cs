@@ -3,7 +3,7 @@ using UnityEngine;
 public class Club : MonoBehaviour
 {
     public int playerIndex; // 所属玩家编号
-    public float hitPower = 10f; // 打击球的力量
+    public float hitPower = 3f; // 打击球的力量
     
 
     private Vector3 lastVelocity; // 上一帧的速度
@@ -14,23 +14,20 @@ public class Club : MonoBehaviour
         // 碰撞到母球时传递速度和方向
         if (collision.gameObject.CompareTag("CueBall"))
         {
-            Debug.Log("club hit the cueball.");
-            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-            if (rb != null)
+            // 获取母球的刚体组件
+            Rigidbody cueBallRb = collision.gameObject.GetComponent<Rigidbody>();
+            if (cueBallRb != null)
             {
-                // 计算球拍的速度和方向
-                Vector3 clubVelocity = GetComponent<Rigidbody>().velocity;
-                Vector3 clubDirection = clubVelocity.normalized;
+                // 计算擊球力量和方向
+                Vector3 clubPosition = transform.position;
+                Quaternion clubRotation = transform.rotation;
+                Vector3 clubForward = clubRotation * Vector3.forward;
+                Vector3 hitDirection = clubForward.normalized;
+                float hitPowerMultiplier = .5f; // 可以根据需要调整
 
-                Debug.Log("clubVelocity = " + clubVelocity);
-                Debug.Log("clubDirection = " + clubDirection);
-                
-                // 计算球拍击打球的力量
-                float power = hitPower * clubVelocity.magnitude;
-                
-                // 传递球拍的速度和方向到母球
-                rb.AddForce(clubDirection * power, ForceMode.Impulse);
-                Debug.Log("add force to cueball.");
+                // 将擊球力量和方向应用于母球
+                cueBallRb.AddForce(hitDirection * hitPower * hitPowerMultiplier, ForceMode.Impulse); 
+                Debug.Log("Addforce to cueball");   
             }
         }
     }
@@ -46,7 +43,7 @@ public class Club : MonoBehaviour
     private void LateUpdate()
     {
         Vector3 currentVelocity = (transform.position - lastPosition) / Time.deltaTime;
-        Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
+        Debug.Log("Club V:" + currentVelocity);
 
         // 限制球拍速度
         float maxSpeed = 10f;
